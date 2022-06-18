@@ -1,0 +1,23 @@
+.root {
+  height: 100vh;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+.card {
+  background-color: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: -1px 10px 8px 0px rgba(75, 75, 75, 0.2);
+}
+
+.title {
+  text-align: center;
+}
