@@ -1,0 +1,23 @@
+
+.imageListContainer {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.imageContainer {
+  margin: 0 20px;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+.imageContainerActive {
+  border: 3px solid #ff2828;
+}
+
+.activeImage {
+  filter: brightness(0.6);
+}
+
+.slideDotsContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}

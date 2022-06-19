@@ -1,14 +1,13 @@
 .header {
-  background-color: #7fffd4;
+  background-color: #2db7f5;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.title {
+  color: #ffffff
+}
 .menu {
-  background-color: transparent;
   width: 150px;
-  &:hover {
-    color: black;
-  }
+  background-color: transparent;
 }

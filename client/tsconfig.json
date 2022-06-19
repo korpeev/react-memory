@@ -11,7 +11,8 @@
     "paths": {
       "components/*": ["src/components/*"],
       "pages/*": ["src/pages/*"],
-      "layouts/*": ["src/layouts/*"]
+      "layouts/*": ["src/layouts/*"],
+      "core/*": ["src/core/*"]
     },
     "esModuleInterop": true,
     "module": "esnext",
