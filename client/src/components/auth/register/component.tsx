@@ -2,6 +2,7 @@ import { LockFilled, MailFilled } from '@ant-design/icons';
 import { Button, Form, Input, Typography } from 'antd';
 import { Auth } from 'layouts/auth';
 import { useRouter } from 'next/router';
+import {passwordValidationSchemes, validationMessages} from 'core/helpers/scheme.constants'
 export const Register = () => {
   const { push } = useRouter();
   const changeRoute = () => {
@@ -10,6 +11,7 @@ export const Register = () => {
   return (
     <Auth title="Регистрация">
       <Form
+          validateMessages={validationMessages}
         onFinish={(values) => {
           console.log(values);
         }}
@@ -17,11 +19,7 @@ export const Register = () => {
         <Form.Item
           name="email"
           rules={[
-            { required: true, message: 'Это объязтаельное поле!' },
-            {
-              type: 'email',
-              message: 'Не валидный Email',
-            },
+            { required: true, type: 'email' },
           ]}
         >
           <Input
@@ -33,7 +31,7 @@ export const Register = () => {
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{ required: true, message: 'Это объязтаельное поле!' }]}
+          rules={[passwordValidationSchemes]}
         >
           <Input
             prefix={<LockFilled />}
@@ -46,7 +44,7 @@ export const Register = () => {
           name="confirmPassword"
           dependencies={['password']}
           rules={[
-            { required: true, message: 'Это объязтаельное поле!' },
+            passwordValidationSchemes,
             ({ getFieldValue }) => ({
               validator(_, value) {
                 if (!value || getFieldValue('password') === value) {

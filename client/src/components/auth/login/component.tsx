@@ -2,7 +2,7 @@ import { LockFilled, MailFilled } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import { Auth } from 'layouts/auth';
 import { useRouter } from 'next/router';
-
+import {passwordValidationSchemes, validationMessages} from 'core/helpers/scheme.constants'
 export const Login = () => {
   const { push } = useRouter();
   const changeRoute = () => {
@@ -11,15 +11,11 @@ export const Login = () => {
 
   return (
     <Auth title="Вход">
-      <Form>
+      <Form validateMessages={validationMessages}>
         <Form.Item
           name="email"
           rules={[
-            { required: true, message: 'Это объязтаельное поле!' },
-            {
-              type: 'email',
-              message: 'Не валидный Email',
-            },
+            { required: true, type: 'email' },
           ]}
         >
           <Input
@@ -31,9 +27,9 @@ export const Login = () => {
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{ required: true, message: 'Это объязтаельное поле!' }]}
+          rules={[{required: true}]}
         >
-          <Input
+          <Input 
             prefix={<LockFilled />}
             placeholder="Пароль"
             type="password"
